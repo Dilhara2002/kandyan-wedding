@@ -1,9 +1,19 @@
+"use client";
+
 type SectionTitleProps = {
   eyebrow?: string;
   title: string;
   description?: string;
   light?: boolean;
 };
+
+/**
+ * Sovereign Heritage Section Title:
+ * - High-tracking Editorial Eyebrow
+ * - Serif Bold Title with Italic support (if needed)
+ * - Heritage Gold (#735C00) accents
+ * - Responsive spacing
+ */
 
 export default function SectionTitle({
   eyebrow,
@@ -12,25 +22,34 @@ export default function SectionTitle({
   light = false,
 }: SectionTitleProps) {
   return (
-    <div className="mx-auto mb-12 max-w-3xl text-center">
+    <div className="mx-auto mb-16 max-w-4xl text-center px-4">
       {eyebrow && (
-        <p className="mb-3 text-sm font-medium uppercase tracking-[0.35em] text-[#c8a96b]">
+        <p className={`mb-5 text-[0.65rem] md:text-[0.7rem] font-bold uppercase tracking-[0.5em] transition-colors duration-500 ${
+          light ? "text-[#ffe088]" : "text-[#735C00]"
+        }`}>
           {eyebrow}
         </p>
       )}
 
       <h2
-        className={`text-3xl font-semibold tracking-wide md:text-5xl ${
-          light ? "text-[#f8f3ec]" : "text-[#2c1810]"
+        className={`text-4xl font-serif font-bold tracking-tight md:text-6xl leading-[1.1] transition-colors duration-500 ${
+          light ? "text-white" : "text-[#520000]"
         }`}
       >
         {title}
       </h2>
 
+      {/* Decorative Sovereign Divider */}
+      <div className="mt-8 mb-8 flex justify-center items-center gap-4 opacity-40">
+        <div className={`h-[1px] w-12 ${light ? "bg-white/30" : "bg-[#e1bfb9]"}`}></div>
+        <div className={`w-2 h-2 rotate-45 border ${light ? "border-white/50" : "border-[#735C00]"}`}></div>
+        <div className={`h-[1px] w-12 ${light ? "bg-white/30" : "bg-[#e1bfb9]"}`}></div>
+      </div>
+
       {description && (
         <p
-          className={`mt-4 text-base leading-8 md:text-lg ${
-            light ? "text-[#f8f3ec]/80" : "text-[#5c4638]"
+          className={`mx-auto max-w-2xl text-sm md:text-base leading-relaxed font-serif italic transition-opacity duration-500 ${
+            light ? "text-[#ffdad4]/80" : "text-[#59413d]"
           }`}
         >
           {description}
